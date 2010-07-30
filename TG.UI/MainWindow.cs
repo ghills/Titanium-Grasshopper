@@ -14,9 +14,9 @@ namespace TG.UI
     {
         private Vuv _myVuv;
         private String _oldText;
-        private const String _vuvText = @"BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ
-                                          BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB
-                                          BBZZZZZZZZZZZZZZZZ";
+        private const String _vuvText =  "BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ" +
+                                         "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB" +
+                                         "BBZZZZZZZZZZZZZZZZ";
         private List<String> _commandHistory;
         
         public MainWindow()
@@ -56,12 +56,14 @@ namespace TG.UI
             {
                 picMain.Image = PictureFactory.GetPicture(PictureFactory.PicTypes.SAD_PIC);
                 txtDescription.Text = _oldText;
+                txtStatus.Text = "Running";
             }
             else
             {
                 _oldText = txtDescription.Text;
                 picMain.Image = PictureFactory.GetPicture(PictureFactory.PicTypes.VUV_PIC);
                 txtDescription.Text = _vuvText;
+                txtStatus.Text = "Playing the song of my people";
             }
         }
 
@@ -69,7 +71,7 @@ namespace TG.UI
         {
             if (e.KeyChar == (char)Keys.Return && !String.IsNullOrEmpty(txtInput.Text))
             {
-                if (txtInput.Text.Equals("Play Vuv"))
+                if (txtInput.Text.ToLower().Equals("play vuv"))
                 {
                     vuv();
                 }
