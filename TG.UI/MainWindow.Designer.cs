@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblPrompt = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblPrompt = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vuvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -59,13 +60,27 @@
             this.splitContainer1.SplitterDistance = 534;
             this.splitContainer1.TabIndex = 3;
             // 
-            // pictureBox1
+            // statusStrip1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(27, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 167);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 444);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(534, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtDescription.Enabled = false;
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(177, 52);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ReadOnly = true;
+            this.txtDescription.Size = new System.Drawing.Size(343, 167);
+            this.txtDescription.TabIndex = 4;
+            this.txtDescription.Text = "You are in a room full of lonliness - a vuvezela reminds you of your sadness and " +
+                "drives you into insanity.";
             // 
             // lblPrompt
             // 
@@ -77,27 +92,19 @@
             this.lblPrompt.TabIndex = 3;
             this.lblPrompt.Text = "What do you do?";
             // 
-            // txtDescription
+            // pictureBox1
             // 
-            this.txtDescription.Location = new System.Drawing.Point(177, 52);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(343, 167);
-            this.txtDescription.TabIndex = 4;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 444);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(534, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
+            this.pictureBox1.Location = new System.Drawing.Point(27, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 167);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.vuvToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(746, 24);
@@ -118,6 +125,13 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // vuvToolStripMenuItem
+            // 
+            this.vuvToolStripMenuItem.Name = "vuvToolStripMenuItem";
+            this.vuvToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.vuvToolStripMenuItem.Text = "&Vuvuzela";
+            this.vuvToolStripMenuItem.Click += new System.EventHandler(this.vuvToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -151,6 +165,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vuvToolStripMenuItem;
 
     }
 }

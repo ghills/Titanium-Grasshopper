@@ -7,3 +7,4 @@ C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\TG.UI.
 C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\TG.UI.pdb
 C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\obj\x86\Debug\TG.UI.exe
 C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\obj\x86\Debug\TG.UI.pdb
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\Resources\Sounds\vuvuzela.wav
