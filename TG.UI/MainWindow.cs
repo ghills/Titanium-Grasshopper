@@ -14,21 +14,42 @@ namespace TG.UI
     {
         private Vuv _myVuv;
         private String _oldText;
-        private const String _vuvText = "BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ" +
-                                      "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZ";
+        private const String _vuvText = @"BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ
+                                          BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB
+                                          BBZZZZZZZZZZZZZZZZ";
+        private List<String> _commandHistory;
         
         public MainWindow()
         {
             InitializeComponent();
             _myVuv = new Vuv();
+            _commandHistory = new List<String>();
         }
 
+        /// <summary>
+        /// Close the main window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Did you click vuv? Play the song of my people
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void vuvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vuv();
+        }
+
+        /// <summary>
+        /// The most critical function in this project. Toggles the vuvuzela state!!
+        /// </summary>
+        private void vuv()
         {
             var playing = _myVuv.TogglePlaying();
             if (!playing)
@@ -41,6 +62,27 @@ namespace TG.UI
                 _oldText = txtDescription.Text;
                 picMain.Image = PictureFactory.GetPicture(PictureFactory.PicTypes.VUV_PIC);
                 txtDescription.Text = _vuvText;
+            }
+        }
+
+        private void txtInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return && !String.IsNullOrEmpty(txtInput.Text))
+            {
+                if (txtInput.Text.Equals("Play Vuv"))
+                {
+                    vuv();
+                }
+                
+                /* Set the event handled to avoid beep */
+                e.Handled = true;
+
+                /* Save the command and rebind textbox */
+                _commandHistory.Add(txtInput.Text);
+                txtCommandHist.Text = String.Join(Environment.NewLine, _commandHistory);
+                txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
+                txtCommandHist.ScrollToCaret();
+                txtInput.Clear();
             }
         }
     }

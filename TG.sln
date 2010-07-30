@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TG.Core", "TG.Core.pyproj", "{A89D6667-C836-454D-A6B6-FA3ECDDDEEDC}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TG.Core", "TG.Core\TG.Core.pyproj", "{A89D6667-C836-454D-A6B6-FA3ECDDDEEDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TG.UI", "..\TG.UI\TG.UI.csproj", "{F729529A-885B-45CB-A4F3-F356FB76E4C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TG.UI", "TG.UI\TG.UI.csproj", "{F729529A-885B-45CB-A4F3-F356FB76E4C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
