@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -129,8 +130,8 @@
             // vuvToolStripMenuItem
             // 
             this.vuvToolStripMenuItem.Name = "vuvToolStripMenuItem";
-            this.vuvToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.vuvToolStripMenuItem.Text = "&Vuvuzela";
+            this.vuvToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.vuvToolStripMenuItem.Text = "&Vuv";
             this.vuvToolStripMenuItem.Click += new System.EventHandler(this.vuvToolStripMenuItem_Click);
             // 
             // MainWindow
@@ -140,6 +141,7 @@
             this.ClientSize = new System.Drawing.Size(746, 490);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "MainWindow";

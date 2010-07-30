@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TG.UI</RootNamespace>
-    <AssemblyName>TG.UI</AssemblyName>
+    <AssemblyName>TitaniumGrasshopper</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -32,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>grasshopper.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -77,6 +80,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="grasshopper.ico" />
+    <Content Include="Resources\Icons\grasshopper.ico" />
     <Content Include="Resources\Sounds\vuvuzela.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
