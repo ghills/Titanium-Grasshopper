@@ -6,19 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Media;
+
 
 namespace TG.UI
 {
     public partial class MainWindow : Form
     {
-        SoundPlayer     spWave;
-        Boolean         isVuv       =       false;
+        Vuv myVuv;
         
         public MainWindow()
         {
             InitializeComponent();
-            spWave = new SoundPlayer( "Resources\\Sounds\\vuvuzela.wav " );
+            myVuv = new Vuv();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -28,12 +27,7 @@ namespace TG.UI
 
         private void vuvToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (isVuv) spWave.Stop();
-            else spWave.PlayLooping();
-
-            isVuv = !isVuv;
+            myVuv.TogglePlaying();
         }
-
-
     }
 }
