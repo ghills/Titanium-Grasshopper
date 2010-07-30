@@ -8,3 +8,5 @@ C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\Titani
 C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\TitaniumGrasshopper.pdb
 C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\obj\x86\Debug\TitaniumGrasshopper.exe
 C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\obj\x86\Debug\TitaniumGrasshopper.pdb
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\Resources\Pictures\lonely.jpg
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.UI\bin\Debug\Resources\Pictures\vuvuzela_red.jpg

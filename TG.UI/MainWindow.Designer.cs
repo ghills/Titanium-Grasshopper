@@ -33,7 +33,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblPrompt = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picMain = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +41,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.txtDescription);
             this.splitContainer1.Panel1.Controls.Add(this.lblPrompt);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.picMain);
             this.splitContainer1.Size = new System.Drawing.Size(746, 466);
             this.splitContainer1.SplitterDistance = 534;
             this.splitContainer1.TabIndex = 3;
@@ -93,13 +93,15 @@
             this.lblPrompt.TabIndex = 3;
             this.lblPrompt.Text = "What do you do?";
             // 
-            // pictureBox1
+            // picMain
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(27, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 167);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.picMain.InitialImage = ((System.Drawing.Image)(resources.GetObject("picMain.InitialImage")));
+            this.picMain.Location = new System.Drawing.Point(27, 52);
+            this.picMain.Name = "picMain";
+            this.picMain.Size = new System.Drawing.Size(144, 167);
+            this.picMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMain.TabIndex = 2;
+            this.picMain.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -123,7 +125,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -149,7 +151,7 @@
             this.splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -163,7 +165,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label lblPrompt;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picMain;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;

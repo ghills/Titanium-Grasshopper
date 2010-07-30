@@ -12,12 +12,15 @@ namespace TG.UI
 {
     public partial class MainWindow : Form
     {
-        Vuv myVuv;
+        private Vuv _myVuv;
+        private String _oldText;
+        private const String _vuvText = "BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ" +
+                                      "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZ";
         
         public MainWindow()
         {
             InitializeComponent();
-            myVuv = new Vuv();
+            _myVuv = new Vuv();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,7 +30,18 @@ namespace TG.UI
 
         private void vuvToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            myVuv.TogglePlaying();
+            var playing = _myVuv.TogglePlaying();
+            if (!playing)
+            {
+                picMain.Image = PictureFactory.GetPicture(PictureFactory.PicTypes.SAD_PIC);
+                txtDescription.Text = _oldText;
+            }
+            else
+            {
+                _oldText = txtDescription.Text;
+                picMain.Image = PictureFactory.GetPicture(PictureFactory.PicTypes.VUV_PIC);
+                txtDescription.Text = _vuvText;
+            }
         }
     }
 }

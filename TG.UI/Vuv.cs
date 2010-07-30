@@ -19,12 +19,13 @@ namespace TG.UI
             _spWave = new SoundPlayer(filepath);
         }
 
-        public void TogglePlaying()
+        public Boolean TogglePlaying()
         {
             if (_isVuv) _spWave.Stop();
             else _spWave.PlayLooping();
 
             _isVuv = !_isVuv;
+            return _isVuv;
         }
     }
 }
