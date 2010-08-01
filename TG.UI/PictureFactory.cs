@@ -9,6 +9,7 @@ namespace TG.UI
     class PictureFactory
     {
 
+        //TODO: make static defined table that links enum constant to filepath, avoid switch stmt
         /// <summary>
         /// Different pictures that can be displayed
         /// </summary>

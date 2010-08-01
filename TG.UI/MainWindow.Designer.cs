@@ -38,13 +38,17 @@
             this.cntRightCol = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtChrName = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vuvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtChrName = new System.Windows.Forms.Label();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.txtStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHP = new System.Windows.Forms.Label();
+            this.lblDamage = new System.Windows.Forms.Label();
+            this.lblHPValue = new System.Windows.Forms.Label();
+            this.lblDamageValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cntMain)).BeginInit();
             this.cntMain.Panel1.SuspendLayout();
             this.cntMain.Panel2.SuspendLayout();
@@ -54,6 +58,7 @@
             this.cntRightCol.Panel1.SuspendLayout();
             this.cntRightCol.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +172,10 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.lblHP, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblDamage, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblHPValue, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblDamageValue, 1, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 30);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -174,6 +183,17 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(161, 110);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // txtChrName
+            // 
+            this.txtChrName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtChrName.AutoSize = true;
+            this.txtChrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChrName.Location = new System.Drawing.Point(47, 5);
+            this.txtChrName.Name = "txtChrName";
+            this.txtChrName.Size = new System.Drawing.Size(72, 17);
+            this.txtChrName.TabIndex = 1;
+            this.txtChrName.Text = "Spartacus";
             // 
             // menuStrip1
             // 
@@ -208,17 +228,6 @@
             this.vuvToolStripMenuItem.Text = "&Vuv";
             this.vuvToolStripMenuItem.Click += new System.EventHandler(this.vuvToolStripMenuItem_Click);
             // 
-            // txtChrName
-            // 
-            this.txtChrName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChrName.AutoSize = true;
-            this.txtChrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChrName.Location = new System.Drawing.Point(47, 5);
-            this.txtChrName.Name = "txtChrName";
-            this.txtChrName.Size = new System.Drawing.Size(72, 17);
-            this.txtChrName.TabIndex = 1;
-            this.txtChrName.Text = "Spartacus";
-            // 
             // stsBottom
             // 
             this.stsBottom.GripMargin = new System.Windows.Forms.Padding(0);
@@ -236,11 +245,51 @@
             this.txtStatus.Size = new System.Drawing.Size(52, 17);
             this.txtStatus.Text = "Running";
             // 
+            // lblHP
+            // 
+            this.lblHP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHP.AutoSize = true;
+            this.lblHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHP.Location = new System.Drawing.Point(26, 21);
+            this.lblHP.Name = "lblHP";
+            this.lblHP.Size = new System.Drawing.Size(28, 13);
+            this.lblHP.TabIndex = 0;
+            this.lblHP.Text = "HP:";
+            // 
+            // lblDamage
+            // 
+            this.lblDamage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDamage.AutoSize = true;
+            this.lblDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDamage.Location = new System.Drawing.Point(11, 76);
+            this.lblDamage.Name = "lblDamage";
+            this.lblDamage.Size = new System.Drawing.Size(57, 13);
+            this.lblDamage.TabIndex = 1;
+            this.lblDamage.Text = "Damage:";
+            // 
+            // lblHPValue
+            // 
+            this.lblHPValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHPValue.AutoSize = true;
+            this.lblHPValue.Location = new System.Drawing.Point(120, 21);
+            this.lblHPValue.Name = "lblHPValue";
+            this.lblHPValue.Size = new System.Drawing.Size(0, 13);
+            this.lblHPValue.TabIndex = 2;
+            // 
+            // lblDamageValue
+            // 
+            this.lblDamageValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDamageValue.AutoSize = true;
+            this.lblDamageValue.Location = new System.Drawing.Point(120, 76);
+            this.lblDamageValue.Name = "lblDamageValue";
+            this.lblDamageValue.Size = new System.Drawing.Size(0, 13);
+            this.lblDamageValue.TabIndex = 3;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 451);
+            this.ClientSize = new System.Drawing.Size(756, 461);
             this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.cntMain);
             this.Controls.Add(this.menuStrip1);
@@ -263,6 +312,8 @@
             this.cntRightCol.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.stsBottom.ResumeLayout(false);
@@ -290,6 +341,10 @@
         private System.Windows.Forms.Label txtChrName;
         private System.Windows.Forms.StatusStrip stsBottom;
         private System.Windows.Forms.ToolStripStatusLabel txtStatus;
+        private System.Windows.Forms.Label lblHP;
+        private System.Windows.Forms.Label lblDamage;
+        private System.Windows.Forms.Label lblHPValue;
+        private System.Windows.Forms.Label lblDamageValue;
 
     }
 }

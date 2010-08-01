@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TG.Model;
 
 
 namespace TG.UI
@@ -18,12 +19,23 @@ namespace TG.UI
                                          "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB" +
                                          "BBZZZZZZZZZZZZZZZZ";
         private List<String> _commandHistory;
+
+        public GameState State
+        {
+            set
+            {
+                this.lblHPValue.Text = Convert.ToString( value.HitPoints );
+                this.lblDamageValue.Text = Convert.ToString( value.Damage );
+                this.txtChrName.Text = value.CharacterName;
+            }
+        }
         
         public MainWindow()
         {
             InitializeComponent();
             _myVuv = new Vuv();
             _commandHistory = new List<String>();
+            this.State = new GameState();
         }
 
         /// <summary>
@@ -85,6 +97,17 @@ namespace TG.UI
                 txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
                 txtCommandHist.ScrollToCaret();
                 txtInput.Clear();
+            }
+        }
+
+        /// <summary>
+        /// The latest command entered in the interface
+        /// </summary>
+        public String CurrentCommand
+        {
+            get
+            {
+                return _commandHistory[_commandHistory.Count - 1];
             }
         }
     }
