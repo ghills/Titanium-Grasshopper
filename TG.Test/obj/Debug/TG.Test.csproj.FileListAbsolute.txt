@@ -1,0 +1,5 @@
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Test\bin\Debug\TG.Test.dll
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Test\bin\Debug\TG.Test.pdb
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Test\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Test\obj\Debug\TG.Test.dll
+C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Test\obj\Debug\TG.Test.pdb

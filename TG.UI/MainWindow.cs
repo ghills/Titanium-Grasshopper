@@ -35,7 +35,7 @@ namespace TG.UI
             InitializeComponent();
             _myVuv = new Vuv();
             _commandHistory = new List<String>();
-            this.State = new GameState();
+            //this.State = new GameState();
         }
 
         /// <summary>

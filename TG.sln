@@ -7,7 +7,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TG.UI", "TG.UI\TG.UI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TG.Model", "TG.Model\TG.Model.csproj", "{B0DD3717-2DF0-41EA-B768-E158DEB1A69C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TG.Test", "TG.Test\TG.Test.csproj", "{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{231E34BC-0C4A-4196-A31B-ADF41E928811}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TG1.vsmdi = TG1.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = TG1.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -47,6 +59,16 @@ Global
 		{B0DD3717-2DF0-41EA-B768-E158DEB1A69C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B0DD3717-2DF0-41EA-B768-E158DEB1A69C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B0DD3717-2DF0-41EA-B768-E158DEB1A69C}.Release|x86.ActiveCfg = Release|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{ACC9983B-E44A-43B1-9425-FB2DEDD73FA9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

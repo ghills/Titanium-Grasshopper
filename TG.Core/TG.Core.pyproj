@@ -27,8 +27,10 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="test.py" />
+    <None Include="test2.py" />
   </ItemGroup>
   <ItemGroup>
+    <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
     <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
   </ItemGroup>
 </Project>

@@ -8,20 +8,23 @@ namespace TG.UI
     public class Program
     {
         private static MainWindow window;
+        private static EventHandler onLoad;
 
         [STAThread]
         static void Main()
         {
-            Program.RunGUI();
+            Program.RunGUI(onLoad);
         }
 
-        public static void RunGUI()
+        public static void RunGUI(EventHandler onLoad)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             window = new MainWindow();
+            window.Load += onLoad;
             Application.Run(window);
+            window.Load -= onLoad;
         }
 
         public static void SetState(GameState state)
