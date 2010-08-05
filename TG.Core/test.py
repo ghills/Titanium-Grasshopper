@@ -3,20 +3,17 @@ clr.AddReferenceToFile("TG.Model.dll")
 clr.AddReferenceToFile("TG.UI.dll")
 from TG.Model import GameState
 from TG.UI import Program
-import thread
-import time
+from TG.UI import MainWindow
     
-def onload():
+def onload( sender, e):
     print "Hello!"
     state = GameState()
     print state.CharacterName
     print dir(Program)
-    Program.SetState(state)
-    raw_input()
+    #Program.SetState(state)
     
 
 def main():
-    #thread.start_new_thread(Program.RunGUI, ())
     Program.RunGUI(onload)
     
         

@@ -10,12 +10,13 @@ namespace TG.UI
         private static MainWindow window;
         private static EventHandler onLoad;
 
-        [STAThread]
+        
         static void Main()
         {
             Program.RunGUI(onLoad);
         }
 
+        [STAThread]
         public static void RunGUI(EventHandler onLoad)
         {
             Application.EnableVisualStyles();
