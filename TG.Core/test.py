@@ -1,3 +1,5 @@
+#Test python script to experiment with C# interoperability
+
 import clr
 clr.AddReferenceToFile("TG.Model.dll")
 clr.AddReferenceToFile("TG.UI.dll")
