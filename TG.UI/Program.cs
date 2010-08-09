@@ -32,5 +32,10 @@ namespace TG.UI
         {
             window.State = state;
         }
+
+        public static void SetInputHandler(EventHandler handler)
+        {
+            window.InputHandler = handler;
+        }
     }
 }

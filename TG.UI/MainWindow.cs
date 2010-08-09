@@ -20,6 +20,9 @@ namespace TG.UI
                                          "BBZZZZZZZZZZZZZZZZ";
         private List<String> _commandHistory;
 
+
+        public EventHandler InputHandler { get; set; }
+
         public GameState State
         {
             set
@@ -27,6 +30,7 @@ namespace TG.UI
                 this.lblHPValue.Text = Convert.ToString( value.HitPoints );
                 this.lblDamageValue.Text = Convert.ToString( value.Damage );
                 this.txtChrName.Text = value.CharacterName;
+                this.txtDescription.Text = value.GameText;
             }
         }
         
@@ -83,6 +87,9 @@ namespace TG.UI
         {
             if (e.KeyChar == (char)Keys.Return && !String.IsNullOrEmpty(txtInput.Text))
             {
+                if( InputHandler != null )
+                    InputHandler(sender, e);
+
                 if (txtInput.Text.ToLower().Equals("play vuv"))
                 {
                     vuv();
@@ -110,5 +117,6 @@ namespace TG.UI
                 return _commandHistory[_commandHistory.Count - 1];
             }
         }
+
     }
 }
