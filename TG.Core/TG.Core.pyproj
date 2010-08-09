@@ -26,11 +26,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Models\GameState.py" />
+    <None Include="Models\__init__.py" />
     <None Include="test.py" />
     <None Include="test2.py" />
+    <None Include="Windows\GameStateLayer.py" />
+    <None Include="Windows\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
     <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
+    <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models" />
+    <Folder Include="Windows" />
   </ItemGroup>
 </Project>
