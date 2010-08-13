@@ -5,14 +5,14 @@ clr.AddReferenceToFile("TG.Model.dll")
 clr.AddReferenceToFile("TG.UI.dll")
 from TG.UI import Program
 from TG.UI import MainWindow
-import Models.GameState
-#import Windows.GameStateLayer
+from Models.GameState import GameState
+from Windows.GameStateLayer import ExportGameState
 
-#state = GameState()
+state = GameState()
     
 def onload( sender, e):
     new_state = ExportGameState(state)
-    #Program.SetState(ExportGameState(state))
+    Program.SetState(ExportGameState(state))
     Program.SetInputHandler(handleInput)
     
 def handleInput(sender, e):
@@ -22,7 +22,7 @@ def handleInput(sender, e):
     myFunction()
     
 def main():
-    state = Models.GameState()
+    state = GameState()
     state.HitPoints = 100
     Program.RunGUI(onload)
     
