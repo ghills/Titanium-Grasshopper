@@ -1,5 +1,0 @@
-C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Model\bin\Release\TG.Model.dll
-C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Model\bin\Release\TG.Model.pdb
-C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Model\obj\Release\ResolveAssemblyReference.cache
-C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Model\obj\Release\TG.Model.dll
-C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Model\obj\Release\TG.Model.pdb
