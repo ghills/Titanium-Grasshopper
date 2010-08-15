@@ -38,6 +38,10 @@
             this.cntRightCol = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblHP = new System.Windows.Forms.Label();
+            this.lblDamage = new System.Windows.Forms.Label();
+            this.lblHPValue = new System.Windows.Forms.Label();
+            this.lblDamageValue = new System.Windows.Forms.Label();
             this.txtChrName = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,10 +49,6 @@
             this.vuvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.txtStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblHP = new System.Windows.Forms.Label();
-            this.lblDamage = new System.Windows.Forms.Label();
-            this.lblHPValue = new System.Windows.Forms.Label();
-            this.lblDamageValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cntMain)).BeginInit();
             this.cntMain.Panel1.SuspendLayout();
             this.cntMain.Panel2.SuspendLayout();
@@ -103,6 +103,8 @@
             this.txtInput.Size = new System.Drawing.Size(509, 20);
             this.txtInput.TabIndex = 6;
             this.txtInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_KeyPress);
+            this.txtInput.KeyDown += new System.Windows.Forms.KeyEventHandler(txtInput_KeyDown);
+            
             // 
             // txtDescription
             // 
@@ -115,8 +117,7 @@
             this.txtDescription.ReadOnly = true;
             this.txtDescription.Size = new System.Drawing.Size(332, 216);
             this.txtDescription.TabIndex = 4;
-            this.txtDescription.Text = "You are in a room full of loneliness - a vuvezela reminds you of your sadness and" +
-                " drives you into insanity.";
+            this.txtDescription.Text = resources.GetString("txtDescription.Text");
             // 
             // txtPrompt
             // 
@@ -184,6 +185,46 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(161, 110);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // lblHP
+            // 
+            this.lblHP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHP.AutoSize = true;
+            this.lblHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHP.Location = new System.Drawing.Point(26, 21);
+            this.lblHP.Name = "lblHP";
+            this.lblHP.Size = new System.Drawing.Size(28, 13);
+            this.lblHP.TabIndex = 0;
+            this.lblHP.Text = "HP:";
+            // 
+            // lblDamage
+            // 
+            this.lblDamage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDamage.AutoSize = true;
+            this.lblDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDamage.Location = new System.Drawing.Point(11, 76);
+            this.lblDamage.Name = "lblDamage";
+            this.lblDamage.Size = new System.Drawing.Size(57, 13);
+            this.lblDamage.TabIndex = 1;
+            this.lblDamage.Text = "Damage:";
+            // 
+            // lblHPValue
+            // 
+            this.lblHPValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHPValue.AutoSize = true;
+            this.lblHPValue.Location = new System.Drawing.Point(120, 21);
+            this.lblHPValue.Name = "lblHPValue";
+            this.lblHPValue.Size = new System.Drawing.Size(0, 13);
+            this.lblHPValue.TabIndex = 2;
+            // 
+            // lblDamageValue
+            // 
+            this.lblDamageValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDamageValue.AutoSize = true;
+            this.lblDamageValue.Location = new System.Drawing.Point(120, 76);
+            this.lblDamageValue.Name = "lblDamageValue";
+            this.lblDamageValue.Size = new System.Drawing.Size(0, 13);
+            this.lblDamageValue.TabIndex = 3;
+            // 
             // txtChrName
             // 
             this.txtChrName.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -244,46 +285,6 @@
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(52, 17);
             this.txtStatus.Text = "Running";
-            // 
-            // lblHP
-            // 
-            this.lblHP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHP.AutoSize = true;
-            this.lblHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHP.Location = new System.Drawing.Point(26, 21);
-            this.lblHP.Name = "lblHP";
-            this.lblHP.Size = new System.Drawing.Size(28, 13);
-            this.lblHP.TabIndex = 0;
-            this.lblHP.Text = "HP:";
-            // 
-            // lblDamage
-            // 
-            this.lblDamage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDamage.AutoSize = true;
-            this.lblDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDamage.Location = new System.Drawing.Point(11, 76);
-            this.lblDamage.Name = "lblDamage";
-            this.lblDamage.Size = new System.Drawing.Size(57, 13);
-            this.lblDamage.TabIndex = 1;
-            this.lblDamage.Text = "Damage:";
-            // 
-            // lblHPValue
-            // 
-            this.lblHPValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHPValue.AutoSize = true;
-            this.lblHPValue.Location = new System.Drawing.Point(120, 21);
-            this.lblHPValue.Name = "lblHPValue";
-            this.lblHPValue.Size = new System.Drawing.Size(0, 13);
-            this.lblHPValue.TabIndex = 2;
-            // 
-            // lblDamageValue
-            // 
-            this.lblDamageValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDamageValue.AutoSize = true;
-            this.lblDamageValue.Location = new System.Drawing.Point(120, 76);
-            this.lblDamageValue.Name = "lblDamageValue";
-            this.lblDamageValue.Size = new System.Drawing.Size(0, 13);
-            this.lblDamageValue.TabIndex = 3;
             // 
             // MainWindow
             // 
