@@ -117,6 +117,7 @@ namespace TG.UI
                     if (_commandHistory.Count == 0) break;
                     txtInput.Clear();
                     txtInput.Text = CurrentCommand;
+                    //TDH TODO: move caret to end of textbox.  multiple presses go further into history
                     break;
             }
         }
