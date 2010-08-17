@@ -103,6 +103,8 @@
             this.txtInput.Size = new System.Drawing.Size(509, 20);
             this.txtInput.TabIndex = 6;
             this.txtInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_KeyPress);
+            this.txtInput.KeyDown += new System.Windows.Forms.KeyEventHandler(txtInput_KeyDown);
+            
             // 
             // txtDescription
             // 
@@ -115,8 +117,7 @@
             this.txtDescription.ReadOnly = true;
             this.txtDescription.Size = new System.Drawing.Size(332, 216);
             this.txtDescription.TabIndex = 4;
-            this.txtDescription.Text = "You are in a room full of loneliness - a vuvezela reminds you of your sadness and" +
-                " drives you into insanity.";
+            this.txtDescription.Text = resources.GetString("txtDescription.Text");
             // 
             // txtPrompt
             // 

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtDescription.Text" xml:space="preserve">
+    <value>You feel lonely. Oh so lonely.  One is the loneliest number, so they say, and thus, since you are alone, you are inclined to agree.  You are so lonely that you begin hearing noises. They sound like bees.  You can't be sure.  Perhaps it is just a symptom of your depressing loneliness that has begun to envelop you.</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>133, 17</value>
   </metadata>
