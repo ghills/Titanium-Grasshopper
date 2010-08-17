@@ -85,25 +85,46 @@ namespace TG.UI
 
         private void txtInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Return && !String.IsNullOrEmpty(txtInput.Text))
+            switch (e.KeyChar)
             {
-                if( InputHandler != null )
-                    InputHandler(sender, e);
+                case ( (char)Keys.Return ):
+                    if (String.IsNullOrEmpty(txtInput.Text)) break;
+                    if( InputHandler != null )
+                        InputHandler(sender, e);
+                    if (txtInput.Text.ToLower().Equals("play vuv"))
+                        {
+                            vuv();
+                        }
+                    /* Set the event handled to avoid beep */
+                    e.Handled = true;
 
-                if (txtInput.Text.ToLower().Equals("play vuv"))
-                {
-                    vuv();
-                }
-                
-                /* Set the event handled to avoid beep */
-                e.Handled = true;
+                    /* Save the command and rebind textbox */
+                    _commandHistory.Add(txtInput.Text);
+                    txtCommandHist.Text = String.Join(Environment.NewLine, _commandHistory);
+                    txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
+                    txtCommandHist.ScrollToCaret();
+                    txtInput.Clear();
+                    break;
+            }
 
-                /* Save the command and rebind textbox */
-                _commandHistory.Add(txtInput.Text);
-                txtCommandHist.Text = String.Join(Environment.NewLine, _commandHistory);
-                txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
-                txtCommandHist.ScrollToCaret();
-                txtInput.Clear();
+        }
+        /// <summary>
+        /// The Keydown event is called when any combination of keys is pressed.
+        /// I.E. ctrl+s will call this event.  This will be useful in the future if we want
+        /// ctrl+s to save the game.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void txtInput_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    if (_commandHistory.Count == 0) break;
+                    txtInput.Clear();
+                    txtInput.Text = CurrentCommand;
+                    //TDH TODO: move caret to end of textbox.  multiple presses go further into history
+                    break;
             }
         }
 
