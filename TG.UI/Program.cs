@@ -8,12 +8,20 @@ namespace TG.UI
     public class Program
     {
         private static MainWindow window;
-        private static EventHandler onLoad;
-
         
         static void Main()
         {
-            Program.RunGUI(onLoad);
+            Program.RunGUI( dummyHandler );
+        }
+
+        /// <summary>
+        /// Used for when this is compiled as a standalone exe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void dummyHandler(object sender, EventArgs e)
+        {
+            
         }
 
         [STAThread]

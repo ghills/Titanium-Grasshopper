@@ -18,7 +18,8 @@ namespace TG.UI
         private const String _vuvText =  "BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ" +
                                          "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB" +
                                          "BBZZZZZZZZZZZZZZZZ";
-        private List<String> _commandHistory;
+        private List<String> _commandList;
+        private Stack<String> _commandHistory;
 
 
         public EventHandler InputHandler { get; set; }
@@ -38,8 +39,8 @@ namespace TG.UI
         {
             InitializeComponent();
             _myVuv = new Vuv();
-            _commandHistory = new List<String>();
-            //this.State = new GameState();
+            _commandList = new List<String>();
+            _commandHistory = new Stack<String>();
         }
 
         /// <summary>
@@ -89,18 +90,16 @@ namespace TG.UI
             {
                 case ( (char)Keys.Return ):
                     if (String.IsNullOrEmpty(txtInput.Text)) break;
-                    if( InputHandler != null )
-                        InputHandler(sender, e);
-                    if (txtInput.Text.ToLower().Equals("play vuv"))
-                        {
-                            vuv();
-                        }
+                    if( InputHandler != null ) InputHandler(sender, e);
+                    if (txtInput.Text.ToLower().Equals("play vuv")) vuv();
+                    
                     /* Set the event handled to avoid beep */
                     e.Handled = true;
 
                     /* Save the command and rebind textbox */
-                    _commandHistory.Add(txtInput.Text);
-                    txtCommandHist.Text = String.Join(Environment.NewLine, _commandHistory);
+                    _commandHistory.Push(txtInput.Text);
+                    _commandList.Add(txtInput.Text);
+                    txtCommandHist.Text = String.Join(Environment.NewLine, _commandList);
                     txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
                     txtCommandHist.ScrollToCaret();
                     txtInput.Clear();
@@ -120,10 +119,12 @@ namespace TG.UI
             switch (e.KeyCode)
             {
                 case Keys.Up:
-                    if (_commandHistory.Count == 0) break;
-                    txtInput.Clear();
-                    txtInput.Text = CurrentCommand;
-                    //TDH TODO: move caret to end of textbox.  multiple presses go further into history
+                    if (_commandHistory.Count > 0)
+                    {
+                        //GMH - TODO: maybe do something smarter instead of popping, so we dont lose the history
+                        txtInput.Text = _commandHistory.Pop();
+                        txtInput.SelectionStart = ( txtInput.Text.Length + 1 );
+                    }
                     break;
             }
         }
@@ -135,7 +136,7 @@ namespace TG.UI
         {
             get
             {
-                return _commandHistory[_commandHistory.Count - 1];
+                return _commandList[_commandList.Count - 1];
             }
         }
 
