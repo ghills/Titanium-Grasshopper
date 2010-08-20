@@ -153,7 +153,7 @@ namespace TG.UI
 
                 case Keys.Left:
                     txtDescription.Text = _prevCommand( ref _descIndex, _descHist);
-                    this.CurrentRoom = false;
+                    if (_descHist.Count > 1) this.CurrentRoom = false;
                     break;
 
                 case Keys.Right:
@@ -193,6 +193,29 @@ namespace TG.UI
             get
             {
                 return _cmdHist[_cmdHist.Count - 1];
+            }
+        }
+
+        private void descNav_Click(object sender, EventArgs e)
+        {
+            Button butt = sender as Button;
+            if( butt == null ) return;
+
+            if( butt.Tag.Equals("prev") )
+            {
+                txtDescription.Text = _prevCommand( ref _descIndex, _descHist);
+                if( _descHist.Count >  1 ) this.CurrentRoom = false;
+            }
+            else if (butt.Tag.Equals("next"))
+            {
+                txtDescription.Text = _nextCommand(ref _descIndex, _descHist);
+                if (_descIndex == _descHist.Count - 1) this.CurrentRoom = true;
+            }
+            else if (butt.Tag.Equals("curr"))
+            {
+                _descIndex = _descHist.Count - 1;
+                txtDescription.Text = _nextCommand(ref _descIndex, _descHist);
+                this.CurrentRoom = true;
             }
         }
 

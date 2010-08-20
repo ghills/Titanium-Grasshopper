@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.cntMain = new System.Windows.Forms.SplitContainer();
+            this.btnCurrDesc = new System.Windows.Forms.Button();
+            this.btnNextDesc = new System.Windows.Forms.Button();
+            this.btnPrevDesc = new System.Windows.Forms.Button();
             this.txtCommandHist = new System.Windows.Forms.TextBox();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -71,6 +74,9 @@
             // 
             // cntMain.Panel1
             // 
+            this.cntMain.Panel1.Controls.Add(this.btnCurrDesc);
+            this.cntMain.Panel1.Controls.Add(this.btnNextDesc);
+            this.cntMain.Panel1.Controls.Add(this.btnPrevDesc);
             this.cntMain.Panel1.Controls.Add(this.txtCommandHist);
             this.cntMain.Panel1.Controls.Add(this.txtInput);
             this.cntMain.Panel1.Controls.Add(this.txtDescription);
@@ -83,6 +89,48 @@
             this.cntMain.Size = new System.Drawing.Size(756, 437);
             this.cntMain.SplitterDistance = 541;
             this.cntMain.TabIndex = 3;
+            // 
+            // btnCurrDesc
+            // 
+            this.btnCurrDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCurrDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCurrDesc.Location = new System.Drawing.Point(305, 196);
+            this.btnCurrDesc.Name = "btnCurrDesc";
+            this.btnCurrDesc.Size = new System.Drawing.Size(100, 23);
+            this.btnCurrDesc.TabIndex = 10;
+            this.btnCurrDesc.Tag = "curr";
+            this.btnCurrDesc.Text = "---HOME---";
+            this.btnCurrDesc.UseMnemonic = false;
+            this.btnCurrDesc.UseVisualStyleBackColor = true;
+            this.btnCurrDesc.Click += new System.EventHandler(this.descNav_Click);
+            // 
+            // btnNextDesc
+            // 
+            this.btnNextDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextDesc.Location = new System.Drawing.Point(411, 196);
+            this.btnNextDesc.Name = "btnNextDesc";
+            this.btnNextDesc.Size = new System.Drawing.Size(110, 23);
+            this.btnNextDesc.TabIndex = 9;
+            this.btnNextDesc.Tag = "next";
+            this.btnNextDesc.Text = "------->";
+            this.btnNextDesc.UseMnemonic = false;
+            this.btnNextDesc.UseVisualStyleBackColor = true;
+            this.btnNextDesc.Click += new System.EventHandler(this.descNav_Click);
+            // 
+            // btnPrevDesc
+            // 
+            this.btnPrevDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevDesc.Location = new System.Drawing.Point(189, 196);
+            this.btnPrevDesc.Name = "btnPrevDesc";
+            this.btnPrevDesc.Size = new System.Drawing.Size(110, 23);
+            this.btnPrevDesc.TabIndex = 8;
+            this.btnPrevDesc.Tag = "prev";
+            this.btnPrevDesc.Text = "<-------";
+            this.btnPrevDesc.UseMnemonic = false;
+            this.btnPrevDesc.UseVisualStyleBackColor = true;
+            this.btnPrevDesc.Click += new System.EventHandler(this.descNav_Click);
             // 
             // txtCommandHist
             // 
@@ -114,7 +162,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(332, 216);
+            this.txtDescription.Size = new System.Drawing.Size(332, 187);
             this.txtDescription.TabIndex = 4;
             this.txtDescription.Text = resources.GetString("txtDescription.Text");
             // 
@@ -345,6 +393,9 @@
         private System.Windows.Forms.Label lblDamage;
         private System.Windows.Forms.Label lblHPValue;
         private System.Windows.Forms.Label lblDamageValue;
+        private System.Windows.Forms.Button btnNextDesc;
+        private System.Windows.Forms.Button btnPrevDesc;
+        private System.Windows.Forms.Button btnCurrDesc;
 
     }
 }
