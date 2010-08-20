@@ -37,6 +37,7 @@ namespace TG.UI
 
                 _descHist.Add( value.GameText );
                 _descIndex = _descHist.Count - 1;
+                btnPrevDesc.Enabled = true;
                 this.CurrentRoom = true;
             }
         }
@@ -55,6 +56,7 @@ namespace TG.UI
                                               new Font(txtDescription.Font, FontStyle.Italic);
                 txtDescription.Text = value ? txtDescription.Text :
                                               "In the past....\r\n" + txtDescription.Text;
+                btnNextDesc.Enabled = !value;
                 _curRoom = value;
             }
         }
@@ -174,6 +176,8 @@ namespace TG.UI
             if (idx < 0) idx = 0;
             else if (idx >= history.Count) idx = history.Count - 1;
 
+            btnPrevDesc.Enabled = true;
+
             return history[idx];
         }
 
@@ -182,7 +186,10 @@ namespace TG.UI
             if (history.Count == 0) return String.Empty;
             
             idx--;
-            if (idx < 0) idx = 0;
+            if ( idx <= 0 ) {
+                idx = 0;
+                btnPrevDesc.Enabled = false;
+            }
             else if (idx >= history.Count) idx = history.Count - 1;
 
             return history[idx];
