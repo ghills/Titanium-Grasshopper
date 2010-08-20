@@ -53,6 +53,8 @@ namespace TG.UI
                 txtDescription.ForeColor = value ? Color.Blue : Color.Black;
                 txtDescription.Font = value ? new Font(txtDescription.Font, FontStyle.Bold) : 
                                               new Font(txtDescription.Font, FontStyle.Italic);
+                txtDescription.Text = value ? txtDescription.Text :
+                                              "In the past....\r\n" + txtDescription.Text;
                 _curRoom = value;
             }
         }
@@ -157,8 +159,9 @@ namespace TG.UI
                     break;
 
                 case Keys.Right:
-                    txtDescription.Text = _nextCommand( ref _descIndex, _descHist);
+                    txtDescription.Text =_nextCommand( ref _descIndex, _descHist);
                     if (_descIndex == _descHist.Count - 1) this.CurrentRoom = true;
+                    else this.CurrentRoom = false;
                     break;
             }
         }
@@ -210,6 +213,7 @@ namespace TG.UI
             {
                 txtDescription.Text = _nextCommand(ref _descIndex, _descHist);
                 if (_descIndex == _descHist.Count - 1) this.CurrentRoom = true;
+                else this.CurrentRoom = false;
             }
             else if (butt.Tag.Equals("curr"))
             {

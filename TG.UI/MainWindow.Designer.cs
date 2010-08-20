@@ -99,7 +99,7 @@
             this.btnCurrDesc.Size = new System.Drawing.Size(100, 23);
             this.btnCurrDesc.TabIndex = 10;
             this.btnCurrDesc.Tag = "curr";
-            this.btnCurrDesc.Text = "---HOME---";
+            this.btnCurrDesc.Text = "--- HOME ---";
             this.btnCurrDesc.UseMnemonic = false;
             this.btnCurrDesc.UseVisualStyleBackColor = true;
             this.btnCurrDesc.Click += new System.EventHandler(this.descNav_Click);
