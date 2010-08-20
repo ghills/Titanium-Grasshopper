@@ -37,6 +37,23 @@ namespace TG.UI
 
                 _descHist.Add( value.GameText );
                 _descIndex = _descHist.Count - 1;
+                this.CurrentRoom = true;
+            }
+        }
+
+        private Boolean _curRoom;
+        private Boolean CurrentRoom
+        {
+            get
+            {
+                return _curRoom;
+            }
+            set
+            {
+                txtDescription.ForeColor = value ? Color.Blue : Color.Black;
+                txtDescription.Font = value ? new Font(txtDescription.Font, FontStyle.Bold) : 
+                                              new Font(txtDescription.Font, FontStyle.Italic);
+                _curRoom = value;
             }
         }
         
@@ -136,10 +153,12 @@ namespace TG.UI
 
                 case Keys.Left:
                     txtDescription.Text = _prevCommand( ref _descIndex, _descHist);
+                    this.CurrentRoom = false;
                     break;
 
                 case Keys.Right:
                     txtDescription.Text = _nextCommand( ref _descIndex, _descHist);
+                    if (_descIndex == _descHist.Count - 1) this.CurrentRoom = true;
                     break;
             }
         }

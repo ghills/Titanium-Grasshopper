@@ -102,9 +102,8 @@
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(509, 20);
             this.txtInput.TabIndex = 6;
+            this.txtInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtInput_KeyDown);
             this.txtInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_KeyPress);
-            this.txtInput.KeyDown += new System.Windows.Forms.KeyEventHandler(txtInput_KeyDown);
-            
             // 
             // txtDescription
             // 
