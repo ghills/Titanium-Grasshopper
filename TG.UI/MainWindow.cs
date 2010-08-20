@@ -19,7 +19,7 @@ namespace TG.UI
                                          "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB" +
                                          "BBZZZZZZZZZZZZZZZZ";
         private List<String> _commandList;
-        private Stack<String> _commandHistory;
+        private int _cmdIndex;
 
 
         public EventHandler InputHandler { get; set; }
@@ -40,7 +40,7 @@ namespace TG.UI
             InitializeComponent();
             _myVuv = new Vuv();
             _commandList = new List<String>();
-            _commandHistory = new Stack<String>();
+            _cmdIndex = 0;
         }
 
         /// <summary>
@@ -90,6 +90,8 @@ namespace TG.UI
             {
                 case ( (char)Keys.Return ):
                     if (String.IsNullOrEmpty(txtInput.Text)) break;
+
+                    _cmdIndex = _commandList.Count + 1;
                     if( InputHandler != null ) InputHandler(sender, e);
                     if (txtInput.Text.ToLower().Equals("play vuv")) vuv();
                     
@@ -97,7 +99,6 @@ namespace TG.UI
                     e.Handled = true;
 
                     /* Save the command and rebind textbox */
-                    _commandHistory.Push(txtInput.Text);
                     _commandList.Add(txtInput.Text);
                     txtCommandHist.Text = String.Join(Environment.NewLine, _commandList);
                     txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
@@ -119,14 +120,33 @@ namespace TG.UI
             switch (e.KeyCode)
             {
                 case Keys.Up:
-                    if (_commandHistory.Count > 0)
-                    {
-                        //GMH - TODO: maybe do something smarter instead of popping, so we dont lose the history
-                        txtInput.Text = _commandHistory.Pop();
-                        txtInput.SelectionStart = ( txtInput.Text.Length + 1 );
-                    }
+                    _prevCommand();
+                    break;
+
+                case Keys.Down:
+                    _nextCommand();
                     break;
             }
+        }
+
+        private void _nextCommand()
+        {
+            _cmdIndex++;
+            if (_cmdIndex >= _commandList.Count)
+            {
+                _cmdIndex = _commandList.Count - 1;
+            }
+            txtInput.Text = _commandList[_cmdIndex];
+        }
+
+        private void _prevCommand()
+        {
+            _cmdIndex--;
+            if (_cmdIndex < 0)
+            {
+                _cmdIndex = 0;
+            }
+            txtInput.Text = _commandList[_cmdIndex];
         }
 
         /// <summary>
