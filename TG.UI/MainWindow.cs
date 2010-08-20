@@ -131,22 +131,26 @@ namespace TG.UI
 
         private void _nextCommand()
         {
+            if (_commandList.Count == 0) return;
+            
             _cmdIndex++;
-            if (_cmdIndex >= _commandList.Count)
-            {
-                _cmdIndex = _commandList.Count - 1;
-            }
+            if (_cmdIndex < 0) _cmdIndex = 0;
+            else if (_cmdIndex >= _commandList.Count) _cmdIndex = _commandList.Count - 1;
+
             txtInput.Text = _commandList[_cmdIndex];
+            txtInput.SelectionStart = txtInput.Text.Length;
         }
 
         private void _prevCommand()
         {
+            if (_commandList.Count == 0) return;
+            
             _cmdIndex--;
-            if (_cmdIndex < 0)
-            {
-                _cmdIndex = 0;
-            }
+            if (_cmdIndex < 0) _cmdIndex = 0;
+            else if (_cmdIndex >= _commandList.Count) _cmdIndex = _commandList.Count - 1;
+            
             txtInput.Text = _commandList[_cmdIndex];
+            txtInput.SelectionStart = txtInput.Text.Length + 1;
         }
 
         /// <summary>
