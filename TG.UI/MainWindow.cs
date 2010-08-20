@@ -18,8 +18,10 @@ namespace TG.UI
         private const String _vuvText =  "BBBBBBBBBBBBZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZ" +
                                          "BBBBBBBBBBBBBBBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZZZZZZZZBBBBBBBBBBBBBBBBBBBBBB" +
                                          "BBZZZZZZZZZZZZZZZZ";
-        private List<String> _commandList;
+        private List<String> _cmdHist;
+        private List<String> _descHist;
         private int _cmdIndex;
+        private int _descIndex;
 
 
         public EventHandler InputHandler { get; set; }
@@ -32,6 +34,9 @@ namespace TG.UI
                 this.lblDamageValue.Text = Convert.ToString( value.Damage );
                 this.txtChrName.Text = value.CharacterName;
                 this.txtDescription.Text = value.GameText;
+
+                _descHist.Add( value.GameText );
+                _descIndex = _descHist.Count - 1;
             }
         }
         
@@ -39,8 +44,10 @@ namespace TG.UI
         {
             InitializeComponent();
             _myVuv = new Vuv();
-            _commandList = new List<String>();
+            _cmdHist = new List<String>();
+            _descHist = new List<String>();
             _cmdIndex = 0;
+            _descIndex = 0;
         }
 
         /// <summary>
@@ -91,7 +98,7 @@ namespace TG.UI
                 case ( (char)Keys.Return ):
                     if (String.IsNullOrEmpty(txtInput.Text)) break;
 
-                    _cmdIndex = _commandList.Count + 1;
+                    _cmdIndex = _cmdHist.Count + 1;
                     if( InputHandler != null ) InputHandler(sender, e);
                     if (txtInput.Text.ToLower().Equals("play vuv")) vuv();
                     
@@ -99,8 +106,8 @@ namespace TG.UI
                     e.Handled = true;
 
                     /* Save the command and rebind textbox */
-                    _commandList.Add(txtInput.Text);
-                    txtCommandHist.Text = String.Join(Environment.NewLine, _commandList);
+                    _cmdHist.Add(txtInput.Text);
+                    txtCommandHist.Text = String.Join(Environment.NewLine, _cmdHist);
                     txtCommandHist.SelectionStart = txtCommandHist.Text.Length;
                     txtCommandHist.ScrollToCaret();
                     txtInput.Clear();
@@ -120,37 +127,43 @@ namespace TG.UI
             switch (e.KeyCode)
             {
                 case Keys.Up:
-                    _prevCommand();
+                    txtInput.Text = _prevCommand( ref _cmdIndex, _cmdHist );
                     break;
 
                 case Keys.Down:
-                    _nextCommand();
+                    txtInput.Text = _nextCommand( ref _cmdIndex, _cmdHist);
+                    break;
+
+                case Keys.Left:
+                    txtDescription.Text = _prevCommand( ref _descIndex, _descHist);
+                    break;
+
+                case Keys.Right:
+                    txtDescription.Text = _nextCommand( ref _descIndex, _descHist);
                     break;
             }
         }
 
-        private void _nextCommand()
+        private String _nextCommand( ref int idx, List<String> history )
         {
-            if (_commandList.Count == 0) return;
-            
-            _cmdIndex++;
-            if (_cmdIndex < 0) _cmdIndex = 0;
-            else if (_cmdIndex >= _commandList.Count) _cmdIndex = _commandList.Count - 1;
+            if (history.Count == 0) return String.Empty;
 
-            txtInput.Text = _commandList[_cmdIndex];
-            txtInput.SelectionStart = txtInput.Text.Length;
+            idx++;
+            if (idx < 0) idx = 0;
+            else if (idx >= history.Count) idx = history.Count - 1;
+
+            return history[idx];
         }
 
-        private void _prevCommand()
+        private String _prevCommand(ref int idx, List<String> history )
         {
-            if (_commandList.Count == 0) return;
+            if (history.Count == 0) return String.Empty;
             
-            _cmdIndex--;
-            if (_cmdIndex < 0) _cmdIndex = 0;
-            else if (_cmdIndex >= _commandList.Count) _cmdIndex = _commandList.Count - 1;
-            
-            txtInput.Text = _commandList[_cmdIndex];
-            txtInput.SelectionStart = txtInput.Text.Length + 1;
+            idx--;
+            if (idx < 0) idx = 0;
+            else if (idx >= history.Count) idx = history.Count - 1;
+
+            return history[idx];
         }
 
         /// <summary>
@@ -160,7 +173,7 @@ namespace TG.UI
         {
             get
             {
-                return _commandList[_commandList.Count - 1];
+                return _cmdHist[_cmdHist.Count - 1];
             }
         }
 
