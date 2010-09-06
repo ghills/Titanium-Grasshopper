@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{a89d6667-c836-454d-a6b6-fa3ecdddeedc}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>C:\Users\gavin\Documents\Development\Titanium-Grasshopper\TG.Core\test.py</StartupFile>
+    <StartupFile>..\TG.Core\test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>..\Build\</WorkingDirectory>
@@ -37,6 +37,7 @@
     <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
     <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
     <WorkingDirectory Include="C:\Users\gavin\Documents\Development\Titanium-Grasshopper\Build\" />
+    <WorkingDirectory Include="C:\Users\Tyler\Documents\TG\Build\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models" />
